@@ -1,0 +1,61 @@
+package com.vcities.ui.ciudad;
+
+import java.awt.image.BufferedImage;
+import java.io.IOException;
+
+import javax.imageio.ImageIO;
+
+import com.vcities.ui.ciudad.mosaico.Mosaico;
+import com.vcities.ui.entidad.mob.Dummy;
+
+
+/**
+ * 
+ * @author seguame
+ *
+ */
+public class CiudadPrueba extends Ciudad{
+
+	public CiudadPrueba(String ruta) {
+		super(ruta);
+		this.generarCiudad();
+	}
+	
+	@Override
+	protected void cargarCiudad(String ruta)
+	{
+		try
+		{
+			BufferedImage imagen = ImageIO.read(CiudadPrueba.class.getResource(ruta));
+			anchura = imagen.getWidth();
+			altura = imagen.getHeight();
+			mosaicos = new Mosaico[anchura * altura];
+			pixelesNivel = new int[anchura * altura];
+			imagen.getRGB(0, 0, anchura, altura, pixelesNivel, 0, anchura);
+		}
+		catch(IOException e)
+		{
+			e.printStackTrace();System.out.println("No logre cargar el nivel");
+		}
+		
+		entidades.add(new Dummy(32, 32));
+	}
+	
+	@Override
+	protected void generarCiudad()
+	{
+		int tamanio = pixelesNivel.length;
+		for(int i = 0; i < tamanio; i++)
+		{
+			if(pixelesNivel[i] == 0xFF00FF00)
+				mosaicos[i] = Mosaico.pasto;
+			else if(pixelesNivel[i] == 0xFFFFFF00)
+				mosaicos[i] = Mosaico.flor;
+			else if(pixelesNivel[i] == 0xFF7F7F00)
+				mosaicos[i] = Mosaico.roca;
+			else
+				mosaicos[i] = Mosaico.vacio;
+		}
+	}
+
+}
