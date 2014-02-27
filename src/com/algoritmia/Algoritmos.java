@@ -1,6 +1,7 @@
 package com.algoritmia;
 
 import java.util.ArrayList;
+import java.util.Iterator;
 import java.util.List;
 
 import com.algoritmia.utileria.Punto;
@@ -41,6 +42,19 @@ public class Algoritmos
 			}
 		}
 		return listaPuntos;
+	}
+	
+	public static Punto damePuntoMasBajo(ArrayList<Punto> listaPuntos){
+		Punto p0, puntoN;
+		Iterator<Punto> iter = listaPuntos.iterator();
+		p0 = iter.next();
+		while(iter.hasNext()){
+			puntoN = iter.next();
+			if(p0.compareTo(puntoN) > 0){
+				p0 = puntoN;
+			}
+		}
+		return p0;
 	}
 
 	public static ArrayList<Punto> interseccion(List<Recta> aa, List<Recta> bb)
