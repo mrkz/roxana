@@ -50,9 +50,12 @@ public class Punto implements Comparable<Punto>
 	}
 
 	@Override
-	public int compareTo(Punto otro) 
-	{
-		return (otro.x - this.x) + (otro.y - this.y);
+	public int compareTo(Punto otro) {
+		if(this.y - otro.y == 0){
+			return this.x - otro.x;
+		}
+		else
+			return this.y - otro.y;
 	}
 	
 	@Override
