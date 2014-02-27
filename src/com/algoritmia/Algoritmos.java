@@ -14,23 +14,33 @@ import com.algoritmia.utileria.Recta;
 
 public class Algoritmos
 {
-	public static ArrayList<Punto> generaPuntos(double baseTotal, double alturaTotal,
-												double baseDeSegmento, double alturaDeSegmento) {
-		double puntosEnY, puntosEnX;
-		double x, y; // temporales para crear puntos
-		ArrayList<Punto> listaDePuntos = new ArrayList<Punto>();
-		puntosEnY = (int)(baseTotal   / baseDeSegmento);
-		puntosEnX = (int)(alturaTotal / alturaDeSegmento);
-		//System.out.println("Habrán "+puntosEnX+" Puntos en X y "+puntosEnY+" Puntos en Y");
-		for (int i = 0; i < baseTotal ; i+=baseDeSegmento) {
-			for (int j = 0; j < alturaTotal; j+=alturaDeSegmento) {
-				x = ((int)(Math.random() * baseDeSegmento+i));
-				y = ((int)(Math.random() * alturaDeSegmento+j));
-				listaDePuntos.add(new Punto((int)x,(int)y));
-				//System.out.println(((int)(Math.random() * baseDeSegmento+i))+", "+((int)(Math.random() * alturaDeSegmento+j)));
+	/**
+	 * baseX = Base total del mapa en el eje X
+	 * baseY = Base total del mapa en el eje Y
+	 * baseSegmentoX = Tamaño de la colonia en el eje X
+	 * baseSegmentoY = Tamaño de la colonia en el eje Y 
+	 **/
+	public static ArrayList<Punto> generaPuntosAleatorios(int baseX, int baseY,
+									   				int baseSegmentoX, int baseSegmentoY){
+		ArrayList<Punto> listaPuntos = new ArrayList<Punto>();
+		
+		if(baseSegmentoX > baseX) 	baseSegmentoX = baseX;
+		if(baseSegmentoY > baseY)	baseSegmentoY = baseY;
+		
+		int x, y,
+			numSegmentosX = baseX / baseSegmentoX,
+			numSegmentosY = baseY / baseSegmentoY,
+			numPuntos     = numSegmentosX * numSegmentosY;
+			System.out.println("se generarán: "+numPuntos+" puntos...");
+		
+		for(int i = 0; i < numSegmentosX; i++){
+			for(int j = 0; j < numSegmentosY; j++){
+				x = (baseSegmentoX * i) + (int)(Math.random() * baseSegmentoX);
+				y = (baseSegmentoY * j) + (int)(Math.random() * baseSegmentoY);
+				listaPuntos.add(new Punto(x, y));
 			}
 		}
-		return listaDePuntos;
+		return listaPuntos;
 	}
 
 	public static ArrayList<Punto> interseccion(List<Recta> aa, List<Recta> bb)
