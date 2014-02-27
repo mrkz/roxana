@@ -1,9 +1,11 @@
 package com.algoritmia;
 
 import java.util.ArrayList;
+import java.util.Collections;
 import java.util.Iterator;
 import java.util.List;
 
+import com.algoritmia.utileria.OrdenarPuntoPorAngulo;
 import com.algoritmia.utileria.Punto;
 import com.algoritmia.utileria.Recta;
 
@@ -44,26 +46,14 @@ public class Algoritmos
 		return listaPuntos;
 	}
 	
-	/**
-	 * compara angulos de p1 y p2 respecto a p0
-	 * regresa:
-	 *  -1 si angulo p1 < p2
-	 *  0  si p1 = p2
-	 *  1  si p1 > p2 
+	/*
+	 * TODO:
+	 * - Demostrar que al momento de ordenar, p0 no se mueve del indice 0 	
+	 * 
 	 */
-	public static int puntoMenorRespectoP0(Punto p0, Punto p1, Punto p2){
-		double p1Cot, p2Cot;
-		int deltaX, deltaY;
-		
-		deltaX = p1.getX() - p0.getX();
-		deltaY = p1.getY() - p0.getY();
-		p1Cot  = Math.atan2(deltaY, deltaX);
-		deltaX = p2.getX() - p0.getX();
-		deltaY = p2.getY() - p0.getY();
-		p2Cot  = Math.atan2(deltaY, deltaX);
-		if(p1Cot < p2Cot) return -1;
-		else if(p1Cot > p2Cot) return 1;
-		return 0;
+	public static void ordenaPorAnguloRespectoP0(ArrayList<Punto> listaPuntos){
+		Punto p0 = damePuntoMasBajo(listaPuntos);
+		Collections.sort(listaPuntos, new OrdenarPuntoPorAngulo(p0));
 	}
 	
 	public static Punto damePuntoMasBajo(ArrayList<Punto> listaPuntos){
