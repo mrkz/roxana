@@ -30,8 +30,8 @@ public class CiudadPrueba extends Ciudad{
 			anchura = imagen.getWidth();
 			altura = imagen.getHeight();
 			mosaicos = new Mosaico[anchura * altura];
-			pixelesNivel = new int[anchura * altura];
-			imagen.getRGB(0, 0, anchura, altura, pixelesNivel, 0, anchura);
+			pixelesCiudad = new int[anchura * altura];
+			imagen.getRGB(0, 0, anchura, altura, pixelesCiudad, 0, anchura);
 		}
 		catch(IOException e)
 		{
@@ -44,14 +44,14 @@ public class CiudadPrueba extends Ciudad{
 	@Override
 	protected void generarCiudad()
 	{
-		int tamanio = pixelesNivel.length;
+		int tamanio = pixelesCiudad.length;
 		for(int i = 0; i < tamanio; i++)
 		{
-			if(pixelesNivel[i] == 0xFF00FF00)
+			if(pixelesCiudad[i] == 0xFF00FF00)
 				mosaicos[i] = Mosaico.pasto;
-			else if(pixelesNivel[i] == 0xFFFFFF00)
+			else if(pixelesCiudad[i] == 0xFFFFFF00)
 				mosaicos[i] = Mosaico.flor;
-			else if(pixelesNivel[i] == 0xFF7F7F00)
+			else if(pixelesCiudad[i] == 0xFF7F7F00)
 				mosaicos[i] = Mosaico.roca;
 			else
 				mosaicos[i] = Mosaico.vacio;

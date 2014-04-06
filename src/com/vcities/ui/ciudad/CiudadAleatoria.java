@@ -21,7 +21,7 @@ public class CiudadAleatoria extends Ciudad {
 		{
 			for(int x = 0; x < anchura; x++)
 			{
-				pixelesNivel[x + y * anchura] = Ciudad.random.nextInt(4);
+				pixelesCiudad[x + y * anchura] = Ciudad.random.nextInt(4);
 			}
 		}
 	}

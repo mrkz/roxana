@@ -14,7 +14,7 @@ public abstract class Entidad {
 	
 	protected int x, y;
 	protected boolean visible;
-	protected Ciudad nivel;
+	protected Ciudad ciudad;
 	protected final Random random;
 	
 	protected Entidad()

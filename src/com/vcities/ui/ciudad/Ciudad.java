@@ -25,7 +25,7 @@ public abstract class Ciudad
 	protected int anchura;
 	protected int altura;
 	protected Mosaico[] mosaicos;
-	protected int[] pixelesNivel;
+	protected int[] pixelesCiudad;
 	protected List<Entidad> entidades;
 	
 	private Comparator<Nodo> comparadorNodo = new Comparator<Nodo>()
@@ -46,7 +46,7 @@ public abstract class Ciudad
 	{
 		this.altura = altura;
 		this.anchura = anchura;
-		pixelesNivel = new int[anchura * altura];
+		pixelesCiudad = new int[anchura * altura];
 		entidades = new ArrayList<Entidad>();
 		random = new Random(System.currentTimeMillis());
 		generarCiudad();
@@ -197,7 +197,7 @@ public abstract class Ciudad
 		if(x < 0 || y < 0 || x >= anchura || y >= altura) 
 			return Mosaico.vacio;
 		
-		int mosaico = pixelesNivel[x + y * anchura];
+		int mosaico = pixelesCiudad[x + y * anchura];
 		
 		switch(mosaico)
 		{
