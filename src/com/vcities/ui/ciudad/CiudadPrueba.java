@@ -6,8 +6,6 @@ import java.io.IOException;
 import javax.imageio.ImageIO;
 
 import com.vcities.ui.ciudad.mosaico.Mosaico;
-import com.vcities.ui.entidad.mob.Dummy;
-
 
 /**
  * 
@@ -37,8 +35,6 @@ public class CiudadPrueba extends Ciudad{
 		{
 			e.printStackTrace();System.out.println("No logre cargar el nivel");
 		}
-		
-		entidades.add(new Dummy(32, 32));
 	}
 	
 	@Override
