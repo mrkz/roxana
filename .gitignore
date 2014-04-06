@@ -1,4 +1,5 @@
-.classpath
-.project
+# .classpath y .project incluidos a petición de Seguame.
+#.classpath
+#.project
 .settings/
 bin/
