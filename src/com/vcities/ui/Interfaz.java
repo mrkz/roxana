@@ -6,10 +6,15 @@ import java.awt.Graphics;
 import java.awt.image.BufferStrategy;
 import java.awt.image.BufferedImage;
 import java.awt.image.DataBufferInt;
+import java.util.List;
+import java.util.Map;
+import java.util.Map.Entry;
 import java.util.Random;
+import java.util.TreeMap;
 
 import javax.swing.JFrame;
 
+import com.algoritmia.utileria.Punto;
 import com.vcities.ui.ciudad.Ciudad;
 import com.vcities.ui.ciudad.CiudadPrueba;
 import com.vcities.ui.ciudad.mosaico.CoordenadaMosaico;
@@ -54,6 +59,16 @@ implements Runnable
 	
 	private Random random = new Random(System.currentTimeMillis());
 	
+	
+	
+	private static Map<Punto, Sprite> puntos;
+	
+	static
+	{
+		puntos = new TreeMap<Punto, Sprite>();
+	}
+	
+	
 	public Interfaz()
 	{
 		Dimension tamanio = new Dimension((int)(anchura * escala),(int)( altura * escala));
@@ -73,6 +88,8 @@ implements Runnable
 		
 		CoordenadaMosaico origenPuntero = new CoordenadaMosaico(10, 10);
 		puntero = new Puntero(origenPuntero.getX(), origenPuntero.getY(), teclado);
+		
+		
 	}
 	
 	
@@ -166,7 +183,7 @@ implements Runnable
 		ciudad.renderizar(xOffset, yOffset, pantalla);
 		puntero.renderizar(pantalla);
 		
-		dibujarContaminacion();
+		dibujarListaPuntos();
 		
 		Graphics graficos = buffer.getDrawGraphics();
 		
@@ -176,6 +193,34 @@ implements Runnable
 	}
 	
 	
+	/////////////////////////////
+	/// Funciones para debug  ///
+	/////////////////////////////
+	
+	public static void setListaPuntos(List<Punto> listaPuntos)
+	{
+		int color = 0x000000;
+		for(Punto p : listaPuntos)
+		{
+			if(!puntos.containsKey(p))
+			{
+				puntos.put(p, new Sprite(2 , 2, color));
+			}
+			
+			color += 0x030303;
+		}
+	}
+	
+	private void dibujarListaPuntos()
+	{
+		for(Entry<Punto, Sprite> punto : puntos.entrySet())
+		{
+			Punto p = punto.getKey();
+			int x = p.getX();
+			int y = p.getY();
+			pantalla.renderizarSprite(x, y, punto.getValue(), true);
+		}
+	}
 	
 	private void dibujarContaminacion()
 	{
