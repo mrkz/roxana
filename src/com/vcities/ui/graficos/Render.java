@@ -1,7 +1,5 @@
 package com.vcities.ui.graficos;
 
-import java.util.Arrays;
-
 import com.vcities.ui.ciudad.mosaico.Mosaico;
 
 /**
@@ -28,13 +26,6 @@ public class Render {
 		this.pixeles = pixeles;
 	}
 	
-	@Deprecated
-	//Se est?? rellenando a pantalla completa cada vez, no se requiere realmente la limpieza
-	//de momento
-	public void limpiar()
-	{
-		Arrays.fill(pixeles, 0);
-	}
 	
 	public void renderizarSprite(int xp, int yp, Sprite sprite, boolean fijo)
 	{
@@ -71,7 +62,7 @@ public class Render {
 		renderizarSprite(xp, yp, mosaico.sprite, true);
 	}
 	
-	public void renderizarPuntero(int xp, int yp, Sprite sprite)
+	public void renderizarMob(int xp, int yp, Sprite sprite)
 	{
 		final int tamanio = sprite.getTamanio();
 		xp -= xOffset;
@@ -82,6 +73,12 @@ public class Render {
 			for(int x = 0; x < tamanio; x++)
 			{
 				int xa = x + xp;
+				
+				//TODO: probar que una vez que se corta el ciclo interior
+				//		podemos cortar sin problema el ciclo exterior 
+				//		para ganar ciclos de procesador
+				if(xa < -tamanio || xa >= anchura || ya < 0 || ya >= altura)
+					break;
 				
 				int color = sprite.pixeles[x + y * tamanio];
 				if(color != 0xFFFF00FF) 
