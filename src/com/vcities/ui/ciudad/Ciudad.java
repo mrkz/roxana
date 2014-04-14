@@ -168,6 +168,11 @@ public abstract class Ciudad
 		return null;
 	}
 	
+	protected void aniadirEntidad(Entidad e)
+	{
+		entidades.add(e);
+	}
+	
 	
 	public List<Entidad> getEntidades(Entidad e, int radio)
 	{
