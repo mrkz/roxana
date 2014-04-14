@@ -92,6 +92,6 @@ public class Puntero extends Mob{
 		}
 		
 		int tamanio = sprite.getTamanio();
-		pantalla.renderizarPuntero(x - tamanio, y - tamanio, sprite);
+		pantalla.renderizarMob(x - tamanio, y - tamanio, sprite);
 	}
 }
