@@ -2,6 +2,7 @@ package com.vcities.ui.entidad.mob;
 
 import com.vcities.ui.entidad.Entidad;
 import com.vcities.ui.entidad.mob.utileria.Direccion;
+import com.vcities.ui.graficos.Render;
 import com.vcities.ui.graficos.Sprite;
 
 /**
@@ -44,18 +45,11 @@ public abstract class Mob extends Entidad
 		}
 	}
 	
-	public void actualizar()
-	{
-		
-	}
-	
-	public void renderizar()
-	{
-		
-	}
-	
 	private boolean colision()
 	{
 		return false;
 	}
+	
+	public abstract void actualizar();
+	public abstract void renderizar(Render render);
 }
