@@ -179,7 +179,7 @@ implements Runnable
 		}
 		int xOffset = puntero.getX() - (pantalla.getAnchura() >> 1);
 		int yOffset = puntero.getY() - (pantalla.getAltura() >> 1);
-		//pantalla.limpiar();
+		
 		ciudad.renderizar(xOffset, yOffset, pantalla);
 		puntero.renderizar(pantalla);
 		
