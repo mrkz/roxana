@@ -21,7 +21,6 @@ public abstract class Mob extends Entidad
 	{
 		super();
 		direccion = Direccion.NULA;
-		enMovimiento = false;
 		cuadroAnimacion = 0;
 	}
 	
