@@ -17,8 +17,50 @@ public class Dummy extends Mob
 	
 	
 	@Override
-	public void actualizar() {
+	public void actualizar() 
+	{
+		int xa = 0;
+		int ya = 0;
 		
+		if(xa != 0 || ya != 0)
+		{
+			mover(xa, ya);
+			
+			switch (direccion) 
+			{
+				case ARRIBA:
+					sprite = Sprite.dummy_arriba;
+					break;
+				case ABAJO:
+					sprite = Sprite.dummy_abajo;
+					break;
+				case ABAJO_DERECHA:
+					sprite = Sprite.dummy_abajo_derecha;
+					break;
+				case ABAJO_IZQUIERDA:
+					sprite = Sprite.dummy_abajo_izquierda;
+					break;
+				case ARRIBA_IZQUIERDA:
+					sprite = Sprite.dummy_arriba_izquierda;
+					break;
+				case ARRIBA_DERECHA:
+					sprite = Sprite.dummy_arriba_derecha;
+					break;
+				case DERECHA:
+					sprite = Sprite.dummy_centro_derecha;
+					break;
+				case IZQUIERDA:
+					sprite = Sprite.dummy_centro_izquierda;
+					break;
+				case NULA:
+					sprite = Sprite.dummy_centro;
+					break;
+			}
+		}
+		else
+		{
+			sprite = Sprite.dummy_centro;
+		}
 	}
 
 	@Override
