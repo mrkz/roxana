@@ -11,26 +11,24 @@ import javax.imageio.ImageIO;
  *
  */
 
-public class SpriteSheet {
-	
-	private String ruta;
-	private final int TAMANIO;
+public class SpriteSheet 
+{
+	private int anchura;
+	private int altura;
 	private int[] pixeles;
 	
-	public SpriteSheet(String ruta, int tamanio)
+	public SpriteSheet(String ruta)
 	{
-		this.ruta = ruta;
-		this.TAMANIO = tamanio;
-		this.pixeles = new int[TAMANIO * TAMANIO];
-		cargarSpriteSheet();
+		cargarSpriteSheet(ruta);
 	}
 	
-	private void cargarSpriteSheet()
+	private void cargarSpriteSheet(String ruta)
 	{
 		try {
 			BufferedImage imagen = ImageIO.read(SpriteSheet.class.getResource(ruta));
-			int anchura = imagen.getWidth();
-			int altura = imagen.getHeight();
+			anchura = imagen.getWidth();
+			altura = imagen.getHeight();
+			this.pixeles = new int[anchura * altura];
 			
 			imagen.getRGB(0, 0, anchura, altura, pixeles, 0, anchura);
 		}
@@ -46,16 +44,13 @@ public class SpriteSheet {
 		{
 			for(int x = 0; x < tamanioSprite; x++)
 			{
-				destino[x + y * tamanioSprite] = pixeles[(x + xOffset) + (y + yOffset) * TAMANIO];
+				destino[x + y * tamanioSprite] = pixeles[(x + xOffset) + (y + yOffset) * anchura];
 			}
 		}
 		
 		return destino;
 	}
 	
-	
-	
-	
-	public static final SpriteSheet mosaicosTerreno = new SpriteSheet("/GFX/terreno.png", 256);
-	public static final SpriteSheet mosaicosPuntero = new SpriteSheet("/GFX/puntero.png", 96);
+	public static final SpriteSheet mosaicosTerreno = new SpriteSheet("/GFX/terreno.png");
+	public static final SpriteSheet mosaicosPuntero = new SpriteSheet("/GFX/puntero.png");
 }
