@@ -20,13 +20,13 @@ public class Puntero extends Mob{
 		this(input);
 		this.x = x;
 		this.y = y;
-		
 	}
 	
 	public Puntero(Teclado input)
 	{
 		super();
 		this.input = input;
+		sprite = Sprite.puntero_centro;
 	}
 	
 	@Override
@@ -48,11 +48,7 @@ public class Puntero extends Mob{
 		{
 			enMovimiento = false;
 		}
-	}
-	
-	@Override
-	public void renderizar(Render pantalla)
-	{
+		
 		if(enMovimiento)
 		{
 			switch (direccion) 
@@ -90,7 +86,11 @@ public class Puntero extends Mob{
 		{
 			sprite = Sprite.puntero_centro;
 		}
-		
+	}
+	
+	@Override
+	public void renderizar(Render pantalla)
+	{	
 		int tamanio = sprite.getTamanio();
 		pantalla.renderizarMob(x - tamanio, y - tamanio, sprite);
 	}
