@@ -58,12 +58,12 @@ public abstract class Ciudad
 		cargarCiudad(ruta);
 	}
 	
-	protected void cargarCiudad(String ruta){}
-	protected abstract void generarCiudad();
-	
 	public void actualizar()
 	{
-		
+		for(Entidad e : entidades)
+		{
+			e.actualizar();
+		}
 	}
 	
 	private void tiempo()
@@ -168,11 +168,6 @@ public abstract class Ciudad
 		return null;
 	}
 	
-	protected void aniadirEntidad(Entidad e)
-	{
-		entidades.add(e);
-	}
-	
 	
 	public List<Entidad> getEntidades(Entidad e, int radio)
 	{
@@ -216,5 +211,9 @@ public abstract class Ciudad
 				return Mosaico.vacio;
 		}
 	}
+	
+	
+	protected void cargarCiudad(String ruta){}
+	protected abstract void generarCiudad();
 	
 }
