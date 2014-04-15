@@ -166,6 +166,7 @@ implements Runnable
 	
 	private void actualizar()
 	{
+		ciudad.actualizar();
 		puntero.actualizar();
 	}
 	
