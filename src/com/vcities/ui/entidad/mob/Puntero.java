@@ -42,15 +42,6 @@ public class Puntero extends Mob{
 		if(xa != 0 || ya != 0)
 		{
 			mover(xa, ya);
-			enMovimiento = true;
-		}
-		else
-		{
-			enMovimiento = false;
-		}
-		
-		if(enMovimiento)
-		{
 			switch (direccion) 
 			{
 				case ARRIBA:
