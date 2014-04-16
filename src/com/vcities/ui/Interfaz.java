@@ -203,6 +203,10 @@ implements Runnable
 		int color = 0x000000;
 		for(Punto p : listaPuntos)
 		{
+			//ajuste para que se acomoden en en mosaico 
+			p.setX(p.getX() << 4);
+			p.setY(p.getY() << 4);
+			
 			if(!puntos.containsKey(p))
 			{
 				puntos.put(p, new Sprite(2 , 2, color));
