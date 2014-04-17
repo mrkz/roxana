@@ -70,14 +70,15 @@ public class Render {
 		for(int y = 0; y < tamanio; y++)
 		{
 			int ya = y + yp;
+			
+			if(ya < 0 || ya >= altura)
+				break;
+			
 			for(int x = 0; x < tamanio; x++)
 			{
 				int xa = x + xp;
 				
-				//TODO: probar que una vez que se corta el ciclo interior
-				//		podemos cortar sin problema el ciclo exterior 
-				//		para ganar ciclos de procesador
-				if(xa < -tamanio || xa >= anchura || ya < 0 || ya >= altura)
+				if(xa < 0 || xa >= anchura)
 					break;
 				
 				int color = sprite.pixeles[x + y * tamanio];
