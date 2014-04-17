@@ -28,6 +28,11 @@ public abstract class Ciudad
 	protected int[] pixelesCiudad;
 	protected List<Entidad> entidades;
 	
+	static
+	{
+		random = new Random(System.currentTimeMillis());
+	}
+	
 	private Comparator<Nodo> comparadorNodo = new Comparator<Nodo>()
 	{
 		@Override
@@ -48,7 +53,6 @@ public abstract class Ciudad
 		this.anchura = anchura;
 		pixelesCiudad = new int[anchura * altura];
 		entidades = new ArrayList<Entidad>();
-		random = new Random(System.currentTimeMillis());
 		generarCiudad();
 	}
 	
