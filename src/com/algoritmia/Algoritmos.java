@@ -52,8 +52,12 @@ public class Algoritmos
 	 * 
 	 */
 	public static void ordenaPorAnguloRespectoP0(ArrayList<Punto> listaPuntos){
+		System.out.println("Lista antes de ser ordenada: ");
+		mostrarListaDePuntos(listaPuntos);
 		Punto p0 = damePuntoMasBajo(listaPuntos);
 		Collections.sort(listaPuntos, new OrdenarPuntoPorAngulo(p0));
+		System.out.println("Lista después de ser ordenada: ");
+		mostrarListaDePuntos(listaPuntos);
 	}
 	
 	public static Punto damePuntoMasBajo(ArrayList<Punto> listaPuntos){
@@ -68,6 +72,13 @@ public class Algoritmos
 		}
 		return p0;
 	}
+	
+	/* metodo temporal para mostrar puntos */
+	private static void mostrarListaDePuntos(ArrayList<Punto> listaPuntos){
+		for(int i = 0; i < listaPuntos.size(); i++){
+			System.out.println((i+1)+": "+listaPuntos.get(i));
+		}
+	}
 
 	public static ArrayList<Punto> interseccion(List<Recta> aa, List<Recta> bb)
 	{
@@ -78,7 +89,7 @@ public class Algoritmos
 	    
 	    int tamanioListas = aa.size();
 	    
-	    ArrayList<Punto> puntosResultantes = new ArrayList<Punto>(tamanioListas); 
+	    ArrayList<Punto> puntosResultantes = new ArrayList<Punto>(tamanioListas);
 	    
 	    Recta a,b;
 	    
