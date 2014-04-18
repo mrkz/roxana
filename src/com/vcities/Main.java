@@ -11,10 +11,15 @@ import com.vcities.ui.Interfaz;
  */
 
 public class Main {
-
+	
+	public static void testGraham(){
+		
+	}
+	
 	public static void main(String[] args) 
 	{
 		Interfaz interfaz = new Interfaz();
+		boolean test = false;
 		
 		//Preparando la ventana donde se dibujara 
 		JFrame ventana = new JFrame();
@@ -25,7 +30,9 @@ public class Main {
 		ventana.pack();
 		ventana.setVisible( true );
 		ventana.requestFocus();
-		
+		if(test){
+			testGraham();
+		}
 		interfaz.iniciar();
 	}
 
