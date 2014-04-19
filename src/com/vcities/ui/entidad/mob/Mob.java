@@ -49,6 +49,11 @@ public abstract class Mob extends Entidad
 		return false;
 	}
 	
+	public Sprite getSprite()
+	{
+		return sprite;
+	}
+	
 	public abstract void actualizar();
 	public abstract void renderizar(Render render);
 }
