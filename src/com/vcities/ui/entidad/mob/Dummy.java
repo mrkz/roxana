@@ -2,16 +2,24 @@ package com.vcities.ui.entidad.mob;
 
 import com.vcities.ui.graficos.Render;
 import com.vcities.ui.graficos.Sprite;
+import com.vcities.ui.entidad.mob.utileria.Direccion;
 
 public class Dummy extends Mob
 {
 
+	private int xa;
+	private int ya;
+	private int tick;
+	
 	public Dummy(int x, int y)
 	{
 		// multiplicando por 16 la posicion 
 		// traduciendo de pixeles a coordenadas en el mapa
 		this.x = x << 4;
 		this.y = y << 4;
+		tick = 0;
+		xa = 0;
+		ya = 0;
 		sprite = Sprite.dummy_centro;
 	}
 	
@@ -19,13 +27,21 @@ public class Dummy extends Mob
 	@Override
 	public void actualizar() 
 	{
-		int xa = 0;
-		int ya = 0;
+		if(++tick % (random.nextInt(50) + 30) == 0)
+		{
+			xa = random.nextInt(3) - 1;
+			ya = random.nextInt(3) - 1;
+			
+			if(random.nextInt(4) == 0)
+			{
+				xa = 0;
+				ya = 0;
+			}
+		}
 		
 		if(xa != 0 || ya != 0)
 		{
 			mover(xa, ya);
-			
 			switch (direccion) 
 			{
 				case ARRIBA:
@@ -65,8 +81,7 @@ public class Dummy extends Mob
 
 	@Override
 	public void renderizar(Render render) {
-		render.renderizarMob(x, y, sprite);
-		
+		render.renderizarMob(x, y, this);
 	}
 
 }
