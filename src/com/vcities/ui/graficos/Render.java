@@ -1,6 +1,7 @@
 package com.vcities.ui.graficos;
 
 import com.vcities.ui.ciudad.mosaico.Mosaico;
+import com.vcities.ui.entidad.mob.Mob;
 
 /**
  * 
@@ -62,8 +63,9 @@ public class Render {
 	}
 	
 	
-	public void renderizarMob(int xp, int yp, Sprite sprite)
+	public void renderizarMob(int xp, int yp, Mob mob)
 	{
+		Sprite sprite = mob.getSprite();
 		final int tamanio = sprite.getTamanio();
 		xp -= xOffset;
 		yp -= yOffset;
