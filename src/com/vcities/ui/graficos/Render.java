@@ -14,7 +14,6 @@ public class Render {
 	private int xOffset;
 	private int yOffset;
 	
-	
 	private int anchura;
 	private int altura;
 	private int[] pixeles;
@@ -62,11 +61,13 @@ public class Render {
 		renderizarSprite(xp, yp, mosaico.sprite, true);
 	}
 	
+	
 	public void renderizarMob(int xp, int yp, Sprite sprite)
 	{
 		final int tamanio = sprite.getTamanio();
 		xp -= xOffset;
 		yp -= yOffset;
+		
 		for(int y = 0; y < tamanio; y++)
 		{
 			int ya = y + yp;
@@ -81,11 +82,17 @@ public class Render {
 				if(xa < 0 || xa >= anchura)
 					break;
 				
+				
+				//Solo si el sprite está visible en pantalla [validado con los 
+				//2 if anteriores, se pondrá su pixel en la pantalla
+				//en caso contrario no se pondrá nada, ahorrando
+				//tiempo de procesamiento.
 				int color = sprite.pixeles[x + y * tamanio];
 				if(color != 0xFFFF00FF) 
 					pixeles[xa + ya * anchura] = color;
 			}
 		}
+		
 	}
 	
 	public void setOffsets(int xOffset, int yOffset)
