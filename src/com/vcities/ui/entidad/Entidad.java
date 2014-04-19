@@ -15,12 +15,12 @@ public abstract class Entidad {
 	protected int x, y;
 	protected boolean visible;
 	protected Ciudad ciudad;
-	protected final Random random;
+	protected static Random random = new Random(System.currentTimeMillis());
 	
 	protected Entidad()
 	{
 		visible = true;
-		random = new Random(System.currentTimeMillis());
+		//random = new Random(System.currentTimeMillis());
 	}
 	
 	public int getX() {
