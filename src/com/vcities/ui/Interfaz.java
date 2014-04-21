@@ -166,7 +166,6 @@ implements Runnable
 	private void actualizar()
 	{
 		ciudad.actualizar();
-		puntero.actualizar();
 	}
 	
 	private void renderizar()
@@ -181,7 +180,6 @@ implements Runnable
 		int yOffset = puntero.getY() - (pantalla.getAltura() >> 1);
 		
 		ciudad.renderizar(xOffset, yOffset, pantalla);
-		puntero.renderizar(pantalla);
 		
 		dibujarListaPuntos();
 		

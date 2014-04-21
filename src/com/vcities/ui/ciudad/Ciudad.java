@@ -66,6 +66,8 @@ public abstract class Ciudad
 	
 	public void actualizar()
 	{
+		puntero.actualizar();
+		
 		for(Entidad e : entidades)
 		{
 			e.actualizar();
@@ -87,10 +89,9 @@ public abstract class Ciudad
 		int y1 = (desplazamientoY + pantalla.getAltura() + 16) >> 4; //el fondo de la pantalla
 		
 		
-		
-		for(int y = y0; y < y1; y++)
+		for(int y = y0; y < y1; ++y)
 		{
-			for(int x = x0; x < x1; x++)
+			for(int x = x0; x < x1; ++x)
 			{
 				if(x < 0 || y < 0 || x >= anchura || y >= altura) 
 					Mosaico.vacio.renderizar(x, y, pantalla);
@@ -110,6 +111,8 @@ public abstract class Ciudad
 		{
 			e.renderizar(pantalla);
 		}
+		
+		puntero.renderizar(pantalla);
 	}
 	
 	
