@@ -10,6 +10,7 @@ import com.algoritmia.utileria.Nodo;
 import com.algoritmia.utileria.Vector2i;
 import com.vcities.ui.ciudad.mosaico.Mosaico;
 import com.vcities.ui.entidad.Entidad;
+import com.vcities.ui.entidad.mob.Puntero;
 import com.vcities.ui.graficos.Render;
 
 /**
@@ -27,6 +28,7 @@ public abstract class Ciudad
 	protected Mosaico[] mosaicos;
 	protected int[] pixelesCiudad;
 	protected List<Entidad> entidades;
+	protected Puntero puntero;
 	
 	static
 	{
@@ -83,6 +85,8 @@ public abstract class Ciudad
 		int x1 = (desplazamientoX + pantalla.getAnchura() + 16) >> 4; //la derecha
 		int y0 = desplazamientoY >> 4; //el tope de la pantalla
 		int y1 = (desplazamientoY + pantalla.getAltura() + 16) >> 4; //el fondo de la pantalla
+		
+		
 		
 		for(int y = y0; y < y1; y++)
 		{
@@ -213,6 +217,23 @@ public abstract class Ciudad
 				return Mosaico.roca;
 			default:
 				return Mosaico.vacio;
+		}
+	}
+	
+	public Puntero getPuntero()
+	{
+		return puntero;
+	}
+	
+	public void agregarEntidad(Entidad e)
+	{
+		if(e instanceof Puntero)
+		{
+			puntero = (Puntero)e;
+		}
+		else
+		{
+			entidades.add(e);
 		}
 	}
 	
