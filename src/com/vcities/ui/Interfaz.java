@@ -36,8 +36,8 @@ implements Runnable
 
 	private static final long serialVersionUID = 1L;
 	
-	public static int anchura 	= 400;
-	public static int altura 	= anchura / 5 * 4; //para la relacion de aspecto
+	public static int anchura 	= 600;
+	public static int altura 	= anchura / 16 * 10; //para la relacion de aspecto
 	public static float escala	= 2f;
 	
 	private Thread hiloGrafico;
@@ -87,9 +87,8 @@ implements Runnable
 		ciudad = new CiudadPrueba("/ciudades/ciudadtests.png");
 		
 		CoordenadaMosaico origenPuntero = new CoordenadaMosaico(10, 10);
-		puntero = new Puntero(origenPuntero.getX(), origenPuntero.getY(), teclado);
-		
-		
+		puntero = new Puntero(origenPuntero, teclado);
+		ciudad.agregarEntidad(puntero);
 	}
 	
 	
