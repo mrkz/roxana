@@ -1,5 +1,6 @@
 package com.vcities.ui.entidad.mob;
 
+import com.vcities.ui.ciudad.mosaico.CoordenadaMosaico;
 import com.vcities.ui.graficos.Render;
 import com.vcities.ui.graficos.Sprite;
 import com.vcities.ui.input.Teclado;
@@ -14,6 +15,11 @@ public class Puntero extends Mob{
 	
 	private Teclado input;
 	private final int velocidad = 10;
+	
+	public Puntero(CoordenadaMosaico cm, Teclado input)
+	{
+		this(cm.getX(), cm.getY(), input);
+	}
 	
 	public Puntero(int x, int y, Teclado input)
 	{
