@@ -2,10 +2,10 @@ package com.algoritmia.utileria;
 
 import java.util.Comparator;
 
-public class OrdenarPuntoPorAngulo implements Comparator<Punto> {
+public class ComparaPuntoPorAngulo implements Comparator<Punto> {
 	private Punto p0;
 	
-	public OrdenarPuntoPorAngulo(Punto p){
+	public ComparaPuntoPorAngulo(Punto p){
 		p0 = p;
 	}
 

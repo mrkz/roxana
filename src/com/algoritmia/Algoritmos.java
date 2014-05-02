@@ -5,7 +5,7 @@ import java.util.Collections;
 import java.util.Iterator;
 import java.util.List;
 
-import com.algoritmia.utileria.OrdenarPuntoPorAngulo;
+import com.algoritmia.utileria.ComparaPuntoPorAngulo;
 import com.algoritmia.utileria.Punto;
 import com.algoritmia.utileria.Recta;
 
@@ -55,7 +55,7 @@ public class Algoritmos
 		System.out.println("Lista antes de ser ordenada: ");
 		mostrarListaDePuntos(listaPuntos);
 		Punto p0 = damePuntoMasBajo(listaPuntos);
-		Collections.sort(listaPuntos, new OrdenarPuntoPorAngulo(p0));
+		Collections.sort(listaPuntos, new ComparaPuntoPorAngulo(p0));
 		System.out.println("Lista después de ser ordenada: ");
 		mostrarListaDePuntos(listaPuntos);
 	}

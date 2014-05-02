@@ -30,7 +30,7 @@ public class Main {
 	public static void main(String[] args) 
 	{
 		Interfaz interfaz = new Interfaz();
-		boolean test = false;
+		boolean test = true;
 		
 		//Preparando la ventana donde se dibujara 
 		JFrame ventana = new JFrame();
