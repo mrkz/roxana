@@ -29,7 +29,12 @@ public class ComparaPuntoPorAngulo implements Comparator<Punto> {
 		p2Cot  = Math.atan2(deltaY, deltaX);
 		if(p1Cot < p2Cot) return -1;
 		else if(p1Cot > p2Cot) return 1;
-		return 0;
+		return p1.compareTo(p2);
+	}
+
+	public int compare(Punto p0, Punto p1, Punto p2){
+		this.p0 = p0;
+		return compare(p1, p2);
 	}
 
 }

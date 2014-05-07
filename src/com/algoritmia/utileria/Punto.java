@@ -63,4 +63,14 @@ public class Punto implements Comparable<Punto>
 	{
 		return ("("+x+", "+y+")");
 	}
+
+	/*
+	 * método temporal para testing de Graham Scan.
+	 * TODO: Borrar metodo cuando graham sea estable.
+	 */
+	/*@Override
+	public String toString()
+	{
+		return (x+" "+y);
+	}*/
 }
