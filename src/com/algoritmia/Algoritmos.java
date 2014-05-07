@@ -52,8 +52,6 @@ public class Algoritmos
 	 * 
 	 */
 	public static void ordenaPorAnguloRespectoP0(ArrayList<Punto> listaPuntos){
-		System.out.println("Lista antes de ser ordenada: ");
-		mostrarListaDePuntos(listaPuntos);
 		Punto p0 = damePuntoMasBajo(listaPuntos);
 		Collections.sort(listaPuntos, new ComparaPuntoPorAngulo(p0));
 		System.out.println("Lista después de ser ordenada: ");
@@ -73,11 +71,38 @@ public class Algoritmos
 		return p0;
 	}
 	
+	public static int productoCruz(Punto p0, Punto p1, Punto p2){
+		int y0 = p0.getY(),
+			y1 = p1.getY(),
+			y2 = p2.getY(),
+			x0 = p0.getX(),
+			x1 = p1.getX(),
+			x2 = p2.getX();
+		return (y2 - y0)*(x1 - x0) - (y1 - y0)*(x2 - x0);
+	}
+
 	/* metodo temporal para mostrar puntos */
 	private static void mostrarListaDePuntos(ArrayList<Punto> listaPuntos){
+		System.out.println(listaPuntos.size());
 		for(int i = 0; i < listaPuntos.size(); i++){
-			System.out.println((i+1)+": "+listaPuntos.get(i));
+			System.out.println(listaPuntos.get(i));
 		}
+	}
+
+	/* metodo temporal para probar con puntos pre-establecidos*/
+	public static ArrayList<Punto> damePuntos(){
+		ArrayList<Punto> lista = new ArrayList<Punto>();
+		lista.add(new Punto(3, 10));
+		lista.add(new Punto(8, 10));
+		lista.add(new Punto(5, 7));
+		lista.add(new Punto(7, 7));
+		lista.add(new Punto(11, 7));
+		lista.add(new Punto(1, 5));
+		lista.add(new Punto(3, 4));
+		lista.add(new Punto(6, 3));
+		lista.add(new Punto(8, 3));
+		lista.add(new Punto(5, 2));
+		return lista;
 	}
 
 	public static ArrayList<Punto> interseccion(List<Recta> aa, List<Recta> bb)
