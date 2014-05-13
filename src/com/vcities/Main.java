@@ -26,7 +26,6 @@ public class Main {
 		//listaPuntos = Algoritmos.damePuntos();
 		Algoritmos.ordenaPorAnguloRespectoP0(listaPuntos);
 		convexHull = GrahamAlgorithm.GrahamScan(listaPuntos);
-		//System.out.println("Salida del ConvexHull:");
 		for(int i = 0; i < convexHull.size(); i++){
 			if(i != convexHull.size()-1 )
 				System.out.println(convexHull.get(i));
