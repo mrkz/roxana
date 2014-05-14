@@ -141,8 +141,8 @@ public class Algoritmos
 	 * @param b Recta 2
 	 * @return verdadero si las 2 rectas se intersectan, falso en caso contrario.
 	 */
-	public static boolean intersect(Recta a, Recta b){
-		return intersect(a.getOrigen(),a.getDestino(), b.getOrigen(), b.getDestino());
+	public static boolean interseccion(Recta a, Recta b){
+		return interseccion(a.getOrigen(),a.getDestino(), b.getOrigen(), b.getDestino());
 	}
 
 	/**
@@ -154,7 +154,7 @@ public class Algoritmos
 	 * @param p4 destino de R2
 	 * @return verdadero si las 2 rectas se intersectan, falso en caso contrario.
 	 */
-	public static boolean intersect(Punto p1, Punto p2, Punto p3, Punto p4){
+	public static boolean interseccion(Punto p1, Punto p2, Punto p3, Punto p4){
 		boolean interseccion = false;
 		int d1 = productoCruz(p3, p4, p1), /* d = direccion{horario, anti-horario} */
 			d2 = productoCruz(p3, p4, p2),
