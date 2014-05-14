@@ -71,6 +71,15 @@ public class Algoritmos
 		return p0;
 	}
 	
+	/**
+	 * Usado para saber direccion de p1 a p2 con respecto a p0.
+	 * @param p0 punto origen
+	 * @param p1 punto
+	 * @param p2
+	 * @return entero negativo si es sentido anti-horario,
+	 *         entero positivo si es sentido horario y
+	 *         0 si los puntos son colineales.
+	 */
 	public static int productoCruz(Punto p0, Punto p1, Punto p2){
 		int y0 = p0.getY(),
 			y1 = p1.getY(),
