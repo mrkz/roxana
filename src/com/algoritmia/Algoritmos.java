@@ -46,11 +46,6 @@ public class Algoritmos
 		return listaPuntos;
 	}
 	
-	/*
-	 * TODO:
-	 * - Demostrar que al momento de ordenar, p0 no se mueve del indice 0 	
-	 * 
-	 */
 	public static void ordenaPorAnguloRespectoP0(ArrayList<Punto> listaPuntos){
 		Punto p0 = damePuntoMasBajo(listaPuntos);
 		Collections.sort(listaPuntos, new ComparaPuntoPorAngulo(p0));
@@ -112,6 +107,73 @@ public class Algoritmos
 		lista.add(new Punto(8, 3));
 		lista.add(new Punto(5, 2));
 		return lista;
+	}
+
+	/* utilizado en enSegmento(p1,p2,p3) */
+	private static int max(int a, int b){
+		if(a > b)
+			return a;
+		return b;
+	}
+
+	/* utilizado en enSegmento(p1,p2,p3) */
+	private static int min(int a, int b){
+		if(a < b)
+			return a;
+		return b;
+	}
+
+	/* utilizado en instersect(p1,p2,p3,p4) */
+	private static boolean enSegmento(Punto p1, Punto p2, Punto p3){
+		if (p2.getX() <= max(p1.getX(), p3.getX()) &&
+			p2.getX() >= min(p1.getX(), p3.getX()) &&
+			p2.getY() <= max(p1.getY(), p3.getY()) &&
+			p2.getY() >= min(p1.getY(), p3.getY()))
+			return true;
+		return false;
+	}
+
+	/**
+	 * metodo sobrecargado para recibir 2 segmentos de recta,
+	 * este llama al mismo metodo que recibe los 4 puntos en
+	 * lugar de los 2 segmentos.
+	 * @param a Recta 1
+	 * @param b Recta 2
+	 * @return verdadero si las 2 rectas se intersectan, falso en caso contrario.
+	 */
+	public static boolean intersect(Recta a, Recta b){
+		return intersect(a.getOrigen(),a.getDestino(), b.getOrigen(), b.getDestino());
+	}
+
+	/**
+	 * metodo que verifica interseccion de las rectas R1 = {p1,p2} y
+	 * R2 = {p3, p4}.
+	 * @param p1 origen de R1
+	 * @param p2 destino de R1
+	 * @param p3 origen de R2
+	 * @param p4 destino de R2
+	 * @return verdadero si las 2 rectas se intersectan, falso en caso contrario.
+	 */
+	public static boolean intersect(Punto p1, Punto p2, Punto p3, Punto p4){
+		boolean interseccion = false;
+		int d1 = productoCruz(p3, p4, p1), /* d = direccion{horario, anti-horario} */
+			d2 = productoCruz(p3, p4, p2),
+			d3 = productoCruz(p1, p2, p3),
+			d4 = productoCruz(p1, p2, p4);
+		if( ((d1 > 0 && d2 < 0) || (d1 < 0 && d2 > 0)) &&
+			((d3 > 0 && d4 < 0) || (d3 < 0 && d4 > 0))){
+			interseccion = true;
+		}
+		else if(d1 == 0 && enSegmento(p3, p4, p1))
+			interseccion = true;
+		else if(d2 == 0 && enSegmento(p3, p4, p2))
+			interseccion = true;
+		else if(d3 == 0 && enSegmento(p1, p2, p3))
+			interseccion = true;
+		else if(d4 == 0 && enSegmento(p1, p2, p4))
+			interseccion = true;
+		/* si ninguna de las anteriores, entonces interseccion = false */
+		return interseccion;
 	}
 
 	public static ArrayList<Punto> interseccion(List<Recta> aa, List<Recta> bb)
