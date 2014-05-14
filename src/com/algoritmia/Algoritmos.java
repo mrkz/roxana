@@ -200,21 +200,29 @@ public class Algoritmos
 	    {
 	    	a = aa.get(i);
 	    	b = bb.get(i);
+	    	int aox = a.getOrigen().getX();
+	    	int aoy = a.getOrigen().getY();
+	    	int adx = a.getDestino().getX();
+	    	int ady = a.getDestino().getY();
+	    	int box = b.getOrigen().getX();
+	    	int boy = b.getOrigen().getX();
+	    	int bdx = b.getDestino().getX();
+	    	int bdy = b.getDestino().getY();
 	    	
-		    pendiente1 = (a.getOrigen().getX() == a.getDestino().getX()) ?
+		    pendiente1 = (aox == adx) ?
 		                  (Double.POSITIVE_INFINITY) :
-		                  ((a.getDestino().getY() - a.getOrigen().getY()) / (a.getDestino().getX() - a.getOrigen().getX()));
+		                  ((ady - aoy) / (adx - aox));
 	
-		    pendiente2 = (b.getOrigen().getX() == b.getDestino().getX()) ?
+		    pendiente2 = (box == bdx) ?
 		    	         (Double.POSITIVE_INFINITY) :
-		    	         ((b.getDestino().getY() - b.getOrigen().getY()) / (b.getDestino().getX() - b.getOrigen().getX()));
+		    	         ((bdy - boy) / (bdx - box));
 	
 	
 		    if( Double.compare(pendiente1, pendiente2) == 0 )
 		    {
 		        //Pendientes iguales, hay de 2 sopas
 		        //o son paralelas o son la misma linea
-		        if( a.getOrigen().getY() - (pendiente1 * a.getOrigen().getX()) == b.getOrigen().getY() - (pendiente2 * b.getOrigen().getX()) )
+		        if( aoy - (pendiente1 * aox) == boy - (pendiente2 * box) )
 		        {
 		            System.err.println("intersectan en muchos puntos");
 		        }
@@ -231,29 +239,25 @@ public class Algoritmos
 		    {
 		        //Lineas que se llegan a tocar
 		    	
-		    	//FIXME:
-		    	//Es un ciclo for que cada instante está obteniendo las referencias
-		    	//cada vuelta, simpliciarlo para que no acceda mas de lo requerido
-		    	//a otros cammpos
-		        x = (pendiente1 * a.getOrigen().getX() - a.getOrigen().getY() -
-		             pendiente2 * b.getOrigen().getX() + b.getOrigen().getY() /
+		        x = (pendiente1 * aox - aoy -
+		             pendiente2 * box + boy /
 		             (pendiente1 - pendiente2));
 	
-		        if( a.getOrigen().getX() == a.getDestino().getX())
+		        if( aox == adx)
 		        {
-		            x = a.getOrigen().getX();
+		            x = aox;
 		        }
 	
-		        if( b.getOrigen().getX() == b.getDestino().getX())
+		        if( box == bdx)
 		        {
-		            x = b.getOrigen().getX();
+		            x = box;
 		        }
 	
-		        y = pendiente1 * (x - a.getOrigen().getX()) + a.getOrigen().getY();
+		        y = pendiente1 * (x - aox) + aoy;
 	
-		        if( a.getOrigen().getX() == a.getDestino().getX() )
+		        if( aox == adx )
 		        {
-		            y = pendiente2 * (x - b.getOrigen().getX()) + b.getOrigen().getY();
+		            y = pendiente2 * (x - box) + boy;
 		        }
 		        
 		        puntosResultantes.add(new Punto((int)x, (int)y));
