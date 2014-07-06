@@ -2,6 +2,7 @@ package com.vcities.ui.entidad.mob;
 
 import com.vcities.ui.graficos.Render;
 import com.vcities.ui.graficos.Sprite;
+import com.vcities.ui.ciudad.mosaico.CoordenadaMosaico;
 import com.vcities.ui.entidad.mob.utileria.Direccion;
 
 public class Dummy extends Mob
@@ -10,16 +11,15 @@ public class Dummy extends Mob
 	private int xa;
 	private int ya;
 	private int tick;
+	private int r;
 	
 	public Dummy(int x, int y)
 	{
-		// multiplicando por 16 la posicion 
-		// traduciendo de pixeles a coordenadas en el mapa
-		this.x = x << 4;
-		this.y = y << 4;
+		super(x,y);
 		tick = 0;
 		xa = 0;
 		ya = 0;
+		r = random.nextInt(50);
 		sprite = Sprite.dummy_centro;
 	}
 	
@@ -27,8 +27,9 @@ public class Dummy extends Mob
 	@Override
 	public void actualizar() 
 	{
-		if(++tick % (random.nextInt(50) + 30) == 0)
+		if(++tick % (r + 30) == 0)
 		{
+			r = random.nextInt(50);
 			xa = random.nextInt(3) - 1;
 			ya = random.nextInt(3) - 1;
 			
