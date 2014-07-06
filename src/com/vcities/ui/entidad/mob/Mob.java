@@ -17,6 +17,16 @@ public abstract class Mob extends Entidad
 	protected boolean enMovimiento;
 	protected int cuadroAnimacion;
 	
+	protected Mob(int x, int y)
+	{
+		this();
+		
+		// multiplicando por 16 la posicion 
+		// traduciendo de pixeles a coordenadas en el mapa
+		this.x = x << 4;
+		this.y = y << 4;
+	}
+	
 	protected Mob()
 	{
 		super();
