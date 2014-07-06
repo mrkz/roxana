@@ -49,4 +49,9 @@ public abstract class Entidad {
 		return visible;
 	}
 	
+	public void setCiudad(Ciudad c)
+	{
+		ciudad = c;
+	}
+	
 }
