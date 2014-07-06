@@ -14,7 +14,7 @@ import com.vcities.ui.input.Teclado;
 public class Puntero extends Mob{
 	
 	private Teclado input;
-	private final int velocidad = 10;
+	private final int velocidad = 5;
 	
 	public Puntero(CoordenadaMosaico cm, Teclado input)
 	{
