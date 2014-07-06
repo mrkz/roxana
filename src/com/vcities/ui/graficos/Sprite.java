@@ -97,6 +97,13 @@ public class Sprite {
 	public static final Sprite agua 	= new Sprite(16, 5, 2, SpriteSheet.mosaicosTerreno);
 	public static final Sprite vacio 	= new Sprite(16, 0x000000);
 	
+	public static final Sprite camino_abajo_derecha			= new Sprite(16, 0, 6, SpriteSheet.mosaicosTerreno);
+	public static final Sprite camino_horizontal			= new Sprite(16, 1, 6, SpriteSheet.mosaicosTerreno);
+	public static final Sprite camino_izquierda_abajo		= new Sprite(16, 2, 6, SpriteSheet.mosaicosTerreno);
+	public static final Sprite camino_derecha_arriba		= new Sprite(16, 0, 7, SpriteSheet.mosaicosTerreno);
+	public static final Sprite camino_vertical				= new Sprite(16, 1, 7, SpriteSheet.mosaicosTerreno);
+	public static final Sprite camino_arriba_izquierda		= new Sprite(16, 2, 7, SpriteSheet.mosaicosTerreno);
+	
 	public static final Sprite puntero_arriba_izquierda 	= new Sprite(16, 0, 0, SpriteSheet.mosaicosPuntero);
 	public static final Sprite puntero_arriba 				= new Sprite(16, 1, 0, SpriteSheet.mosaicosPuntero);
 	public static final Sprite puntero_arriba_derecha 		= new Sprite(16, 2, 0, SpriteSheet.mosaicosPuntero);
