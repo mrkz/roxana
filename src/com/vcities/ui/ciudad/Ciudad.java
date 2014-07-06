@@ -230,6 +230,8 @@ public abstract class Ciudad
 	
 	public void agregarEntidad(Entidad e)
 	{
+		e.setCiudad(this);
+		
 		if(e instanceof Puntero)
 		{
 			puntero = (Puntero)e;
