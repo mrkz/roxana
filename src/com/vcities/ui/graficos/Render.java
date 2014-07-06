@@ -2,6 +2,7 @@ package com.vcities.ui.graficos;
 
 import com.vcities.ui.ciudad.mosaico.Mosaico;
 import com.vcities.ui.entidad.mob.Mob;
+import com.vcities.ui.entidad.mob.Perseguidor;
 
 /**
  * 
@@ -90,6 +91,10 @@ public class Render {
 				//en caso contrario no se pondrá nada, ahorrando
 				//tiempo de procesamiento.
 				int color = sprite.pixeles[x + y * tamanio];
+				
+				if(mob instanceof Perseguidor && color == 0xFFED1C24) 
+					color = 0xFF0000FF;
+				
 				if(color != 0xFFFF00FF) 
 					pixeles[xa + ya * anchura] = color;
 			}
