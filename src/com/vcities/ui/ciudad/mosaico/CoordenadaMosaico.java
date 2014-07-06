@@ -20,7 +20,7 @@ public class CoordenadaMosaico
 
 	public void setX(int x) 
 	{
-		this.x = x;
+		this.x = x* CoordenadaMosaico.TAMANIO_MOSAICO ; 
 	}
 
 	public int getY() 
@@ -30,6 +30,6 @@ public class CoordenadaMosaico
 
 	public void setY(int y)
 	{
-		this.y = y;
+		this.y = y * CoordenadaMosaico.TAMANIO_MOSAICO;
 	}
 }
