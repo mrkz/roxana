@@ -1,21 +1,33 @@
 package com.vcities.ui;
 
 import java.awt.FlowLayout;
+import java.awt.GridLayout;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.awt.event.ItemEvent;
+import java.awt.event.ItemListener;
 
 import javax.swing.JButton;
 import javax.swing.JFrame;
+import javax.swing.JMenu;
+import javax.swing.JMenuBar;
+import javax.swing.JMenuItem;
 
 public class Interfaz
 extends JFrame
-implements ActionListener
+implements ActionListener, ItemListener
 {
 	private static final long serialVersionUID = 1L;
 	
 	private JButton botonNuevaSimulacion;
 	private JButton botonCargarSimulacion;
 	
+	private JMenuBar barraMenu;
+	private JMenu menu;
+	private JMenuItem guardarEstadoCiudad;
+	private JMenuItem cargarEstadoCiudad;
+	private JMenuItem nuevoEstadoCiudad;
+
 	private VirtualCities vcities;
 	
 	public Interfaz()
@@ -32,6 +44,22 @@ implements ActionListener
 	
 	private void crearUI()
 	{
+		barraMenu = new JMenuBar();
+		menu = new JMenu("Ciudad");
+		guardarEstadoCiudad = new JMenuItem("Guardar");
+		cargarEstadoCiudad = new JMenuItem("Cargar");
+		nuevoEstadoCiudad = new JMenuItem("Nuevo");
+		
+		nuevoEstadoCiudad.addActionListener(this);
+		guardarEstadoCiudad.addActionListener(this);
+		cargarEstadoCiudad.addActionListener(this);
+		
+		menu.add(nuevoEstadoCiudad);
+		menu.add(guardarEstadoCiudad);
+		menu.add(cargarEstadoCiudad);
+		barraMenu.add(menu);
+		setJMenuBar(barraMenu);
+		
 		botonCargarSimulacion = new JButton("Cargar");
 		botonNuevaSimulacion = new JButton("Nuevo");
 		
@@ -46,25 +74,43 @@ implements ActionListener
 	@Override
 	public void actionPerformed(ActionEvent e) 
 	{
-		remove(botonCargarSimulacion);
-		remove(botonNuevaSimulacion);
-		
 		String accion = e.getActionCommand();
-		
+		System.out.println(accion);
 		switch(accion)
 		{
 			case "Nuevo":
 				vcities = new VirtualCities();
+				
+				break;
+				
+			case "Guardar":
+				if(vcities != null)
+				{
+					//TODO: Guardado en modo ontologia
+				}
 				break;
 			
 			case "Cargar":
+				//TODO: Cargar una ontologia
 				break;
 		}
 		
-		add(vcities);
-		pack();
+		if(vcities != null)
+		{
+			remove(botonCargarSimulacion);
+			remove(botonNuevaSimulacion);
+			setLayout(new GridLayout());
+			add(vcities);
+			pack();
+			
+			vcities.iniciar();
+		}
+	}
+
+	@Override
+	public void itemStateChanged(ItemEvent e) 
+	{
 		
-		vcities.iniciar();
 	}
 	
 }
