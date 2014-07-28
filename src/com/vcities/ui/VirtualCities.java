@@ -36,9 +36,9 @@ implements Runnable
 
 	private static final long serialVersionUID = 1L;
 	
-	public static int anchura 	= 900;
+	public static int anchura 	= 500;
 	public static int altura 	= anchura / 16 * 9; //para la relacion de aspecto
-	public static float escala	= 2f;
+	public static float escala	= 1.5f;
 	
 	private Thread hiloGrafico;
 	private boolean ejecutandose;
