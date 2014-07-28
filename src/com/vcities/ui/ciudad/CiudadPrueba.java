@@ -5,11 +5,7 @@ import java.io.IOException;
 
 import javax.imageio.ImageIO;
 
-import com.vcities.ui.VirtualCities;
-import com.vcities.ui.ciudad.mosaico.CoordenadaMosaico;
 import com.vcities.ui.ciudad.mosaico.Mosaico;
-import com.vcities.ui.entidad.mob.Dummy;
-import com.vcities.ui.entidad.mob.Perseguidor;
 
 /**
  * 
