@@ -1,7 +1,7 @@
 package com.vcities;
 
 import javax.swing.JFrame;
-import com.vcities.ui.Interfaz;
+import com.vcities.ui.VirtualCities;
 import java.util.ArrayList;
 import java.util.Stack;
 import com.algoritmia.Algoritmos;
@@ -36,7 +36,7 @@ public class Main {
 	
 	public static void main(String[] args) 
 	{
-		Interfaz interfaz = new Interfaz();
+		VirtualCities interfaz = new VirtualCities();
 		boolean test = true;
 		
 		//Preparando la ventana donde se dibujara 

@@ -29,15 +29,15 @@ import com.vcities.ui.input.Teclado;
  *
  */
 
-public class Interfaz 
+public class VirtualCities 
 extends Canvas 
 implements Runnable
 {
 
 	private static final long serialVersionUID = 1L;
 	
-	public static int anchura 	= 600;
-	public static int altura 	= anchura / 16 * 10; //para la relacion de aspecto
+	public static int anchura 	= 900;
+	public static int altura 	= anchura / 16 * 9; //para la relacion de aspecto
 	public static float escala	= 2f;
 	
 	private Thread hiloGrafico;
@@ -69,7 +69,7 @@ implements Runnable
 	}
 	
 	
-	public Interfaz()
+	public VirtualCities()
 	{
 		Dimension tamanio = new Dimension((int)(anchura * escala),(int)( altura * escala));
 		this.setPreferredSize( tamanio );
