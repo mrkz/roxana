@@ -1,12 +1,12 @@
 package com.vcities;
 
-import javax.swing.JFrame;
-import com.vcities.ui.VirtualCities;
 import java.util.ArrayList;
 import java.util.Stack;
+
 import com.algoritmia.Algoritmos;
-import com.algoritmia.utileria.Punto;
 import com.algoritmia.GrahamAlgorithm;
+import com.algoritmia.utileria.Punto;
+import com.vcities.ui.Interfaz;
 
 /**
  * 
@@ -36,22 +36,12 @@ public class Main {
 	
 	public static void main(String[] args) 
 	{
-		VirtualCities interfaz = new VirtualCities();
 		boolean test = true;
-		
-		//Preparando la ventana donde se dibujara 
-		JFrame ventana = new JFrame();
-		ventana.setDefaultCloseOperation( JFrame.EXIT_ON_CLOSE );
-		ventana.setResizable( false );
-		ventana.setTitle( "Testing" );
-		ventana.add( interfaz );
-		ventana.pack();
-		ventana.setVisible( true );
-		ventana.requestFocus();
 		if(test){
 			testGraham();
 		}
-		interfaz.iniciar();
+		
+		new Interfaz();
 	}
 
 }
