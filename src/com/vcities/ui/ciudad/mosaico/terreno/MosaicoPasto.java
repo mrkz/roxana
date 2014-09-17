@@ -14,4 +14,9 @@ public class MosaicoPasto extends Mosaico{
 	public MosaicoPasto() {
 		super(Sprite.pasto, true);
 	}
+	
+	public String toString()
+	{
+		return "pasto";
+	}
 }

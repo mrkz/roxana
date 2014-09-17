@@ -7,5 +7,9 @@ public class MosaicoVacio extends Mosaico {
 	public MosaicoVacio() {
 		super(Sprite.agua, false);
 	}
-
+	
+	public String toString()
+	{
+		return "agua";
+	}
 }

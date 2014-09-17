@@ -13,4 +13,9 @@ public class MosaicoRoca extends Mosaico {
 	public MosaicoRoca() {
 		super(Sprite.roca, false);
 	}
+	
+	public String toString()
+	{
+		return "roca";
+	}
 }

@@ -16,6 +16,9 @@ public class MosaicoFlor extends Mosaico {
 		super(Sprite.flor, true);
 	}
 	
-	
+	public String toString()
+	{
+		return "flor";
+	}
 
 }
