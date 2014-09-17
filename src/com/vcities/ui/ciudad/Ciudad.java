@@ -118,6 +118,11 @@ public abstract class Ciudad
 	
 	public List<Nodo> encontrarCamino(Vector2i inicio, Vector2i destino)
 	{
+		//No hay camino disponible si el destino está en un 
+		//Mosaico no transitable
+		if(!getMosaico(destino).esTransitable()) 
+			return null;
+		
 		List<Nodo> considerados = new ArrayList<Nodo>();
 		List<Nodo> camino = new ArrayList<Nodo>();
 		
@@ -139,8 +144,8 @@ public abstract class Ciudad
 					actual = actual.padre;
 				}
 				
-				camino.clear();
 				considerados.clear();
+				camino.clear();
 				
 				return caminoInvertido;
 			}
@@ -156,28 +161,33 @@ public abstract class Ciudad
 				int y = actual.posicion.getY();
 				int xi = (i % 3) - 1;
 				int yi = (i / 3) - 1;
+				int xx = x + xi;
+				int yy = y + yi;
 				
-				Mosaico en = getMosaico(x + xi,y + yi);
+				Mosaico en = getMosaico(xx, yy);
 				
 				if(en == null || !en.esTransitable()) //fuera de limites o no es transitable
 					continue;
 				
-				Vector2i a = new Vector2i(x + xi,  y + yi);
+				Vector2i a = new Vector2i(xx, yy);
 				double gCosto = actual.gCosto + Vector2i.getDistancia(actual.posicion, a);
 				double hCosto = Vector2i.getDistancia(a, destino);
 				Nodo nodo = new Nodo(a, actual, gCosto, hCosto);
 				
-				if(considerados.contains(nodo) && gCosto >= actual.gCosto)
+				if(camino.contains(nodo) && gCosto >= actual.gCosto)
 					continue;
 				
-				if(!camino.contains(nodo) || gCosto < actual.gCosto)
-					camino.add(nodo);
+				
+				if(!considerados.contains(nodo) || gCosto < actual.gCosto)
+					considerados.add(nodo);
+				
 			}
 		}
 		
 		camino.clear();
 		return null;
 	}
+	
 	
 	
 	public List<Entidad> getEntidades(Entidad e, int radio)
@@ -206,21 +216,24 @@ public abstract class Ciudad
 	public Mosaico getMosaico(int x, int y)
 	{
 		if(x < 0 || y < 0 || x >= anchura || y >= altura) 
-			return Mosaico.vacio;
-		
-		int mosaico = pixelesCiudad[x + y * anchura];
-		
-		switch(mosaico)
 		{
-			case 0:
-				return Mosaico.pasto;
-			case 1:
-				return Mosaico.flor;
-			case 2:
-				return Mosaico.roca;
-			default:
-				return Mosaico.vacio;
+			return Mosaico.vacio;
 		}
+		
+		return mosaicos[x + y * anchura];
+	}
+	
+	public Mosaico getMosaico(Vector2i v)
+	{
+		int x = v.getX();
+		int y = v.getY();
+		
+		if(x < 0 || y < 0 || x >= anchura || y >= altura) 
+		{
+			return Mosaico.vacio;
+		}
+		
+		return mosaicos[x + y * anchura];
 	}
 	
 	public Puntero getPuntero()
