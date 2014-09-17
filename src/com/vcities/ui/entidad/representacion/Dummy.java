@@ -1,11 +1,11 @@
-package com.vcities.ui.entidad.mob;
+package com.vcities.ui.entidad.representacion;
 
 import com.vcities.ui.graficos.Render;
 import com.vcities.ui.graficos.Sprite;
 import com.vcities.ui.ciudad.mosaico.CoordenadaMosaico;
-import com.vcities.ui.entidad.mob.utileria.Direccion;
+import com.vcities.ui.entidad.representacion.utileria.Direccion;
 
-public class Dummy extends Mob
+public class Dummy extends RepresentacionEntidad
 {
 
 	private int xa;

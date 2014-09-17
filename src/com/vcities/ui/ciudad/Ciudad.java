@@ -10,7 +10,7 @@ import com.algoritmia.utileria.Nodo;
 import com.algoritmia.utileria.Vector2i;
 import com.vcities.ui.ciudad.mosaico.Mosaico;
 import com.vcities.ui.entidad.Entidad;
-import com.vcities.ui.entidad.mob.Puntero;
+import com.vcities.ui.entidad.representacion.Puntero;
 import com.vcities.ui.graficos.Render;
 
 /**

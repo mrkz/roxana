@@ -1,8 +1,8 @@
 package com.vcities.ui.graficos;
 
 import com.vcities.ui.ciudad.mosaico.Mosaico;
-import com.vcities.ui.entidad.mob.Mob;
-import com.vcities.ui.entidad.mob.Perseguidor;
+import com.vcities.ui.entidad.representacion.Perseguidor;
+import com.vcities.ui.entidad.representacion.RepresentacionEntidad;
 
 /**
  * 
@@ -64,9 +64,9 @@ public class Render {
 	}
 	
 	
-	public void renderizarMob(int xp, int yp, Mob mob)
+	public void renderizarMob(int xp, int yp, RepresentacionEntidad rep)
 	{
-		Sprite sprite = mob.getSprite();
+		Sprite sprite = rep.getSprite();
 		final int tamanio = sprite.getTamanio();
 		xp -= xOffset;
 		yp -= yOffset;
@@ -92,7 +92,7 @@ public class Render {
 				//tiempo de procesamiento.
 				int color = sprite.pixeles[x + y * tamanio];
 				
-				if(mob instanceof Perseguidor && color == 0xFFED1C24) 
+				if(rep instanceof Perseguidor && color == 0xFFED1C24) 
 					color = 0xFF0000FF;
 				
 				if(color != 0xFFFF00FF) 

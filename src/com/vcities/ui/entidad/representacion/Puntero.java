@@ -1,4 +1,4 @@
-package com.vcities.ui.entidad.mob;
+package com.vcities.ui.entidad.representacion;
 
 import com.vcities.ui.ciudad.mosaico.CoordenadaMosaico;
 import com.vcities.ui.graficos.Render;
@@ -11,7 +11,7 @@ import com.vcities.ui.input.Teclado;
  *
  */
 
-public class Puntero extends Mob{
+public class Puntero extends RepresentacionEntidad{
 	
 	private Teclado input;
 	private final int velocidad = 5;

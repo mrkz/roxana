@@ -1,7 +1,7 @@
-package com.vcities.ui.entidad.mob;
+package com.vcities.ui.entidad.representacion;
 
 import com.vcities.ui.entidad.Entidad;
-import com.vcities.ui.entidad.mob.utileria.Direccion;
+import com.vcities.ui.entidad.representacion.utileria.Direccion;
 import com.vcities.ui.graficos.Render;
 import com.vcities.ui.graficos.Sprite;
 
@@ -10,14 +10,14 @@ import com.vcities.ui.graficos.Sprite;
  * @author seguame
  *
  */
-public abstract class Mob extends Entidad
+public abstract class RepresentacionEntidad extends Entidad
 {
 	protected Sprite sprite;
 	protected Direccion direccion;
 	protected boolean enMovimiento;
 	protected int cuadroAnimacion;
 	
-	protected Mob(int x, int y)
+	protected RepresentacionEntidad(int x, int y)
 	{
 		this();
 		
@@ -27,7 +27,7 @@ public abstract class Mob extends Entidad
 		this.y = y << 4;
 	}
 	
-	protected Mob()
+	protected RepresentacionEntidad()
 	{
 		super();
 		direccion = Direccion.NULA;

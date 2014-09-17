@@ -18,7 +18,7 @@ import com.algoritmia.utileria.Punto;
 import com.vcities.ui.ciudad.Ciudad;
 import com.vcities.ui.ciudad.CiudadPrueba;
 import com.vcities.ui.ciudad.mosaico.CoordenadaMosaico;
-import com.vcities.ui.entidad.mob.Puntero;
+import com.vcities.ui.entidad.representacion.Puntero;
 import com.vcities.ui.graficos.Render;
 import com.vcities.ui.graficos.Sprite;
 import com.vcities.ui.input.Teclado;

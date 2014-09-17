@@ -1,4 +1,4 @@
-package com.vcities.ui.entidad.mob.utileria;
+package com.vcities.ui.entidad.representacion.utileria;
 
 /**
  * 
