@@ -64,7 +64,7 @@ public class Render {
 	}
 	
 	
-	public void renderizarMob(int xp, int yp, RepresentacionEntidad rep)
+	public void renderizarEntidad(int xp, int yp, RepresentacionEntidad rep)
 	{
 		Sprite sprite = rep.getSprite();
 		final int tamanio = sprite.getTamanio();

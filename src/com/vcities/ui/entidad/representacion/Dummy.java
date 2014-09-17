@@ -82,7 +82,7 @@ public class Dummy extends RepresentacionEntidad
 
 	@Override
 	public void renderizar(Render render) {
-		render.renderizarMob(x, y, this);
+		render.renderizarEntidad(x, y, this);
 	}
 
 }

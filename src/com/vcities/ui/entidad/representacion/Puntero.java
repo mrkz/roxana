@@ -89,6 +89,6 @@ public class Puntero extends RepresentacionEntidad{
 	public void renderizar(Render pantalla)
 	{	
 		int tamanio = sprite.getTamanio();
-		pantalla.renderizarMob(x - tamanio, y - tamanio, this);
+		pantalla.renderizarEntidad(x - tamanio, y - tamanio, this);
 	}
 }
