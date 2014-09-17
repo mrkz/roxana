@@ -6,6 +6,8 @@ import java.io.IOException;
 import javax.imageio.ImageIO;
 
 import com.vcities.ui.ciudad.mosaico.Mosaico;
+import com.vcities.ui.entidad.representacion.Dummy;
+import com.vcities.ui.entidad.representacion.Perseguidor;
 
 /**
  * 
@@ -37,12 +39,12 @@ public class CiudadPrueba extends Ciudad{
 		}
 		
 		
-		/*agregarEntidad(new Perseguidor(10, 10));
+		agregarEntidad(new Perseguidor(21, 11));
 		
-		for(int i = 1; i <= 50000; ++i)
+		for(int i = 1; i <= 5000; ++i)
 		{
 			agregarEntidad(new Dummy(random.nextInt(anchura), random.nextInt(altura)));
-		}*/
+		}
 	}
 	
 	@Override
