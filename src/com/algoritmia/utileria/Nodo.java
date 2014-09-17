@@ -34,4 +34,10 @@ public class Nodo
 	{
 		return posicion.hashCode();
 	}
+	
+	@Override
+	public String toString()
+	{
+		return posicion.toString();
+	}
 }

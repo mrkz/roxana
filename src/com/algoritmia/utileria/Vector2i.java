@@ -52,18 +52,15 @@ public class Vector2i
 	{
 		if(o instanceof Vector2i)
 		{
-			return this.x == ((Vector2i)o).x && this.y == ((Vector2i)o).y;
+			return this.x == ((Vector2i)o).getX() && this.y == ((Vector2i)o).getY();
 		}
 		
 		return false;
 	}
 	
 	@Override
-	public int hashCode()
+	public String toString()
 	{
-		int algo = new Integer(x).hashCode();
-		int algoMas = new Integer(y).hashCode();
-		Double algoMenos = (double)algo / (double)algoMas;
-		return algoMenos.hashCode();
+		return ("X:" + x + " Y: " + y);
 	}
 }
