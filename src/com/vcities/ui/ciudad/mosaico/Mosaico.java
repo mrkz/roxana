@@ -3,6 +3,7 @@ package com.vcities.ui.ciudad.mosaico;
 import com.vcities.ui.ciudad.mosaico.terreno.MosaicoFlor;
 import com.vcities.ui.ciudad.mosaico.terreno.MosaicoPasto;
 import com.vcities.ui.ciudad.mosaico.terreno.MosaicoRoca;
+import com.vcities.ui.ciudad.mosaico.terreno.MosaicoVacio;
 import com.vcities.ui.graficos.Render;
 import com.vcities.ui.graficos.Sprite;
 
