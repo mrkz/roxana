@@ -75,7 +75,6 @@ implements ActionListener, ItemListener
 	public void actionPerformed(ActionEvent e) 
 	{
 		String accion = e.getActionCommand();
-		System.out.println(accion);
 		switch(accion)
 		{
 			case "Nuevo":
